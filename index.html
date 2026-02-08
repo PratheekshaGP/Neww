@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      max-width: 350px;
+    }
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #555;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 10px;
+      transition: 0.3s;
+    }
+
+    #yesBtn {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #yesBtn:hover {
+      background: #e63b5d;
+    }
+
+    #noBtn {
+      background: #ddd;
+      position: absolute;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff4d6d;
+      font-size: 20px;
+      animation: float 5s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(1);
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.5);
+      }
+    }
+    .fade-in {
+  animation: fadeInUp 1.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.heartbeat {
+  animation: heartbeat 2s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>💖 Haloooooo😌 💖</h1>
+    <p>Will you be my Valentine 🔪🩸</p>
+    <button id="yesBtn" onclick="sayYes()">Yes 💕</button>
+    <button id="noBtn" onmouseover="moveNo()">No 😒</button>
+  </div>
+<script>
+  // Create music object globally
+  const music = new Audio("bumblinga.mp3");
+  music.loop = true;
+  music.volume = 0.6;
+
+  function sayYes() {
+    // Play music after user click (important!)
+    music.play().catch(err => {
+      console.log("Music play failed:", err);
+    });
+document.body.innerHTML = `
+  <div style="
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    font-family:'Segoe UI',sans-serif;
+    text-align:center;
+  ">
+    <h1 class="fade-in" style="color:#ff4d6d;">
+      Goooooooooooood😌<br>
+    </h1>
+
+    <img src="piccc.jpg"
+         class="fade-in heartbeat"
+         alt="Valentine Image"
+         style="
+           width:260px;
+           max-width:80%;
+           margin-top:20px;
+           border-radius:20px;
+           box-shadow:0 10px 25px rgba(0,0,0,0.2);
+         ">
+         <p class="fade-in" style="
+  margin-top:20px;
+  font-size:18px;
+  color:#444;
+  Appo ok!!!!!!!<br>
+  Happy Propose Day😂👯‍♀️
+</p>
+
+  </div>
+`;
+
+  }
+
+  function moveNo() {
+    const noBtn = document.getElementById("noBtn");
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  }
+
+  
+    // Floating hearts
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }, 300);
+  </script>
+
+</body>
+</html>
