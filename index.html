@@ -91,13 +91,14 @@
 }
 
 .heartbeat {
-  animation: heartbeat 2s infinite;
+  animation: heartbeat 2.5s ease-in-out infinite;
 }
 
 @keyframes heartbeat {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  50% { transform: scale(1.03); }
 }
+
   </style>
 </head>
 
@@ -136,7 +137,19 @@ document.body.innerHTML = `
       Goooooooooooood 😌
     </h1>
 
-    <img src="piccc.jpg" class="fade-in heartbeat">
+    <img src="piccc.jpg"
+     class="fade-in heartbeat"
+     alt="Valentine Image"
+     style="
+       width:260px;
+       max-width:80%;
+       max-height:300px;
+       object-fit:contain;
+       margin-top:20px;
+       border-radius:20px;
+       box-shadow:0 10px 25px rgba(0,0,0,0.2);
+     ">
+
 
     <p class="fade-in">
       Appo ok!!!!!!!<br>
